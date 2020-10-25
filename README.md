@@ -10,12 +10,21 @@
 | `.gitconfig` | Global Git configuration to specify my name and email, shortcuts, colors, and more. |
 | `.gitignore` | The ignore file from [twbs/bootstrap](https://github.com/twbs/bootstrap) that I use everywhere. |
 
+## Shell script (WIP)
+This repository includes a shell script for executing the bulk of the configuration process. First, install and agree to terms for Xcode, then download and run Strap. Then, enter the following in Terminal:
+
+```bash
+curl https://raw.githubusercontent.com/mdo/config/master/config.sh > ~/Downloads/config.sh && bash ~/Downloads/config.sh
+```
+
+Many of the included macOS Terminal customizations are taken from <https://github.com/pawelgrzybek/dotfiles> and <https://github.com/mathiasbynens/dotfiles>.
+
 ## Checklist
 
 ### 1. Prep OS X
 
 - Download and install latest version of Xcode from the Mac App Store.
-- Download and install Xcode Command Line Tools from <https://developer.apple.com/downloads/>.
+- Open Terminal and trigger Xcode Command Line Tools installation: `xcode-select --install`
 
 **Be sure to open Xcode and agree to the terms of use.**
 
@@ -23,11 +32,10 @@
 
 - Load [`.bash_profile`](/.bash_profile)
 - Load [`.gitconfig`](/.gitconfig) contents into the global `~/.gitconfig`
-- Load up the Ocean theme from <https://github.com/mdo/ocean-terminal>
+- Load up the Atom theme from <https://github.com/nathanbuchar/atom-one-dark-terminal>
 
 ### 3. Secure Git(Hub) access
 
-- [Generate new SSH key](https://help.github.com/articles/generating-ssh-keys/)
 - [Generate an access token](https://help.github.com/articles/creating-an-access-token-for-command-line-use/) for Terminal to auth your GitHub account when 2FA is enabled.
 
 ### 4. GitHub dev setup
@@ -38,8 +46,8 @@
 ### 5. Setup Ruby
 
 - Install rbenv via Homebrew: `brew install rbenv`.
-- Download a version of Ruby via rbenv (e.g., `rbenv install 2.2.5`). See <https://gorails.com/setup/osx/10.11-el-capitan>.
-- Make it the global version of Ruby: `rbenv global 2.2.5`.
+- Download a version of Ruby via rbenv (e.g., `rbenv install 2.5.1`). See <https://gorails.com/setup/osx/10.11-el-capitan>.
+- Make it the global version of Ruby: `rbenv global 2.5.1`.
 
 *Installing and managing Ruby with rbenv allows us to specify versions of Ruby on a per-project basis. It also means we can avoid running sudo commands for installing gems and more as it's not affecting OS X's system Ruby.*
 
@@ -50,17 +58,7 @@
 - Install node via Homebrew: `brew install node`.
 - Install Sass, Jekyll, and Rouge: `gem install bundler sass jekyll rouge`.
 
-### 7. Setup Atom
-
-- Enable `atom` Terminal commands: from Atom.app, open the Atom menu and select *Install Shell Commands*
-- Install favorite packages
-  - [Wrap in tag](https://atom.io/packages/atom-wrap-in-tag)
-  - [Selector to tag](https://atom.io/packages/selector-to-tag)
-  - [EditorConfig](https://atom.io/packages/editorconfig)
-  - [Markdown Writer](https://atom.io/packages/markdown-writer) (install and run `Markdown Writer: Create Default keymaps` to activate default keybindings)
-  - [Import SF Mono](https://atom.io/packages/import-sf-mono) to allow Atom to access `SF Mono` as editor type face
-
-### 8. Customize things
+### 7. Customize things
 - Disable LCD font smoothing
 - Hide desktop icons with `defaults write com.apple.finder CreateDesktop false; killall Finder`
 - Set sidebar icons to Small
